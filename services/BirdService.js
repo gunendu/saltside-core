@@ -1,7 +1,7 @@
 var Promise = require('bluebird');
 var userdb = require('../lib/user/user');
-fs = Promise.promisifyAll(require('fs')),
-moment = require('moment'),
+fs = Promise.promisifyAll(require('fs'));
+moment = require('moment');
 
 var BirdService = {};
 
