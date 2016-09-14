@@ -5,15 +5,26 @@ var _ = require('underscore');
 
 var BirdsController = {};
 
-BirdsController.saveBird = function(username,email,name,profile_url) {
-   return birdService.saveUser(username,email,name,profile_url)
+BirdsController.saveBird = function(name,family,continents,visible) {
+   return birdService.saveBirds(name,family,continents,visible)
      .then(function(result) {
-     })
-     .then(function(result) {
+        return result
      })
      .catch(function(e) {
         console.log(e.stack);
      })
 };
+
+BirdsController.getAllBirds = function() {
+  return birddb.getAllBirds()
+}
+
+BirdsController.getBirdById = function(id) {
+  return birddb.getBirdById(id)
+}
+
+BirdsController.deleteById = function(id) {
+  return birddb.deleteById(id);
+}
 
 module.exports = BirdsController;

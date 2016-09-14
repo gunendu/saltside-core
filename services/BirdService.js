@@ -1,15 +1,14 @@
 var Promise = require('bluebird');
-var userdb = require('../lib/user/user');
+var birddb = require('../lib/bird');
 fs = Promise.promisifyAll(require('fs'));
 moment = require('moment');
 
 var BirdService = {};
 
-BirdService.saveUser = function (username,email,name,profile_url,hash) {
+BirdService.saveBirds = function (name,family,continents,visible) {
    var created_at = new Date().getTime();
-   created_at =  moment(created_at).format('YYYY-MM-DD HH:mm:ss');
-   var updated_at = moment(updated_at).format('YYYY-MM-DD HH:mm:ss');
-   return userdb.create(username,email,name,profile_url,created_at,updated_at)
+   created_at =  moment(created_at).format('YYYY-MM-DD');
+   return birddb.create(name,family,continents,visible,created_at)
 };
 
 module.exports = BirdService;
